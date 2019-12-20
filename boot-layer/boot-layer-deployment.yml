@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: boot-layer-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      component: boot-layer
+  template:
+    metadata:
+      labels:
+        component: boot-layer
+    spec:
+      containers:
+      - name: myapp
+        image: jmgarcia214/ingress-poc-boot-pod
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080

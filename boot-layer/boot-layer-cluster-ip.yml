@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: boot-layer-cluster-ip
+spec:
+  type: ClusterIP
+  selector:
+    name: boot-layer-deployment
+  ports:
+  - port: 8080
+    targetPort: 8080
